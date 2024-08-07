@@ -1,0 +1,1 @@
+# kibana-go-example-logrus
