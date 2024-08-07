@@ -7,6 +7,7 @@ import (
 	"github.com/sirupsen/logrus"
 )
 
+// Define Routes
 func SetupRoutes(router *mux.Router, logger *logrus.Logger) {
 	router.HandleFunc("/api/students", handlers.ListStudents(logger)).Methods("GET")
 	router.HandleFunc("/api/students/{id}", handlers.GetStudent(logger)).Methods("GET")

@@ -12,6 +12,7 @@ import (
 	"github.com/sirupsen/logrus"
 )
 
+// List students
 func ListStudents(logger *logrus.Logger) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		logger.WithFields(logrus.Fields{
@@ -26,6 +27,7 @@ func ListStudents(logger *logrus.Logger) http.HandlerFunc {
 	}
 }
 
+// Get student
 func GetStudent(logger *logrus.Logger) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		params := mux.Vars(r)
@@ -49,6 +51,7 @@ func GetStudent(logger *logrus.Logger) http.HandlerFunc {
 	}
 }
 
+// Add student
 func AddStudent(logger *logrus.Logger) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		var student models.Student
@@ -73,6 +76,7 @@ func AddStudent(logger *logrus.Logger) http.HandlerFunc {
 	}
 }
 
+// Update student
 func UpdateStudent(logger *logrus.Logger) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		params := mux.Vars(r)
@@ -101,6 +105,7 @@ func UpdateStudent(logger *logrus.Logger) http.HandlerFunc {
 	}
 }
 
+// Delete student
 func DeleteStudent(logger *logrus.Logger) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		params := mux.Vars(r)

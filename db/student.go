@@ -12,6 +12,7 @@ var (
 	mu       sync.Mutex
 )
 
+// Get all students from memory
 func GetAllStudents() []models.Student {
 	mu.Lock()
 	defer mu.Unlock()
@@ -22,6 +23,7 @@ func GetAllStudents() []models.Student {
 	return allStudents
 }
 
+// Get all student by ID from memory
 func GetStudentByID(id string) (models.Student, error) {
 	mu.Lock()
 	defer mu.Unlock()
@@ -32,6 +34,7 @@ func GetStudentByID(id string) (models.Student, error) {
 	return student, nil
 }
 
+// Create Student
 func AddStudent(student models.Student) error {
 	mu.Lock()
 	defer mu.Unlock()
@@ -42,6 +45,7 @@ func AddStudent(student models.Student) error {
 	return nil
 }
 
+// Update Student
 func UpdateStudent(student models.Student) error {
 	mu.Lock()
 	defer mu.Unlock()
@@ -52,6 +56,7 @@ func UpdateStudent(student models.Student) error {
 	return nil
 }
 
+// Delete Student
 func DeleteStudent(id string) error {
 	mu.Lock()
 	defer mu.Unlock()

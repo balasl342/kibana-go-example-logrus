@@ -16,6 +16,7 @@ type ElasticsearchHook struct {
 	client *elasticsearch.Client
 }
 
+// Create Elastic client
 func NewElasticsearchHook(url, apiKey string) (*ElasticsearchHook, error) {
 	cfg := elasticsearch.Config{
 		Addresses: []string{url},
@@ -29,6 +30,7 @@ func NewElasticsearchHook(url, apiKey string) (*ElasticsearchHook, error) {
 	return &ElasticsearchHook{client: client}, nil
 }
 
+// Custom Fire method
 func (hook *ElasticsearchHook) Fire(entry *logrus.Entry) error {
 	data, err := json.Marshal(entry.Data)
 	if err != nil {
@@ -54,6 +56,7 @@ func (hook *ElasticsearchHook) Fire(entry *logrus.Entry) error {
 	return nil
 }
 
+// Custom Levels support
 func (hook *ElasticsearchHook) Levels() []logrus.Level {
 	return logrus.AllLevels
 }
